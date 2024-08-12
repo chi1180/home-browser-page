@@ -46,8 +46,7 @@ link_data.forEach(data => {
     createLink(data);
 });
 
-function createLink(data)
-{
+function createLink(data) {
     const a = document.createElement("a");
     a.href = data.href;
     a.classList.add("link");
@@ -70,9 +69,15 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const is_fill = search.value.trim() !== "";
+    const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
     if (is_fill) {
-        form.action = "//www.google.co.jp/search";
-        form.submit();
+        const is_url = urlRegex.test(search.value);
+        if (is_url) {
+            window.location.href = search.value;
+        } else {
+            form.action = "//www.google.co.jp/search";
+            form.submit();
+        }
     }
 });
 
