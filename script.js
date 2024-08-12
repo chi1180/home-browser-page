@@ -73,7 +73,9 @@ form.addEventListener("submit", (e) => {
     if (is_fill) {
         const is_url = urlRegex.test(search.value);
         if (is_url) {
-            window.location.href = search.value;
+            const a = document.createElement("a");
+            a.href = search.value;
+            a.click();
         } else {
             form.action = "//www.google.co.jp/search";
             form.submit();
