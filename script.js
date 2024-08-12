@@ -69,17 +69,9 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const is_fill = search.value.trim() !== "";
-    const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i;
     if (is_fill) {
-        const is_url = urlRegex.test(search.value);
-        if (is_url) {
-            const a = document.createElement("a");
-            a.href = search.value;
-            a.click();
-        } else {
             form.action = "//www.google.co.jp/search";
             form.submit();
-        }
     }
 });
 
