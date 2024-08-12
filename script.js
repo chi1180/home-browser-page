@@ -71,7 +71,7 @@ form.addEventListener("submit", (e) => {
 
     const is_fill = search.value.trim() !== "";
     if (is_fill) {
-        form.action = "http://www.google.co.jp/search";
+        form.action = "//www.google.co.jp/search";
         form.submit();
     }
 });
